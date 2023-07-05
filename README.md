@@ -1,7 +1,5 @@
 <div align="center">
 
-# asdf-process-compose [![Build](https://github.com/appaquet/asdf-process-compose/actions/workflows/build.yml/badge.svg)](https://github.com/appaquet/asdf-process-compose/actions/workflows/build.yml) [![Lint](https://github.com/appaquet/asdf-process-compose/actions/workflows/lint.yml/badge.svg)](https://github.com/appaquet/asdf-process-compose/actions/workflows/lint.yml)
-
 [process-compose](https://github.com/F1bonacc1/process-compose) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
@@ -10,7 +8,6 @@
 
 - [Dependencies](#dependencies)
 - [Install](#install)
-- [Contributing](#contributing)
 - [License](#license)
 
 # Dependencies
@@ -46,12 +43,6 @@ process-compose --version
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
 install & manage versions.
 
-# Contributing
-
-Contributions of any kind welcome! See the [contributing guide](contributing.md).
-
-[Thanks goes to these contributors](https://github.com/zia-ai/asdf-process-compose/graphs/contributors)!
-
 # License
 
-See [LICENSE](LICENSE) © [Andre-Philippe Paquet](https://github.com/appaquet/)
+See [LICENSE](LICENSE) © [HumanFirst](https://www.humanfirst.ai/)
