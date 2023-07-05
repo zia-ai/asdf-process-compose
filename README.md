@@ -15,10 +15,7 @@
 
 # Dependencies
 
-**TODO: adapt this section**
-
 - `bash`, `curl`, `tar`: generic POSIX utilities.
-- `SOME_ENV_VAR`: set this environment variable in your shell config to load the correct version of tool x.
 
 # Install
 
@@ -27,7 +24,7 @@ Plugin:
 ```shell
 asdf plugin add process-compose
 # or
-asdf plugin add process-compose https://github.com/appaquet/asdf-process-compose.git
+asdf plugin add process-compose https://github.com/zia-ai/asdf-process-compose.git
 ```
 
 process-compose:
@@ -53,7 +50,7 @@ install & manage versions.
 
 Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
-[Thanks goes to these contributors](https://github.com/appaquet/asdf-process-compose/graphs/contributors)!
+[Thanks goes to these contributors](https://github.com/zia-ai/asdf-process-compose/graphs/contributors)!
 
 # License
 
