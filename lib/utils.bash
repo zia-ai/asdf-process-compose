@@ -40,6 +40,12 @@ download_release() {
 	platform=$(uname)
 	arch=$(uname -m)
 
+	# From version 75.0.0, platform is lowercased
+	major=$(echo "$version" | cut -d. -f1)
+	if [ "$major" -ge 75 ]; then
+		platform=$(echo "$platform" | tr '[:upper:]' '[:lower:]')
+	fi
+
 	# File pattern: process-compose_Linux_arm.tar.gz
 	url="$GH_REPO/releases/download/v${version}/process-compose_${platform}_${arch}.tar.gz"
 
