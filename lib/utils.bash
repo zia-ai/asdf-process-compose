@@ -40,14 +40,22 @@ download_release() {
 	platform=$(uname)
 	arch=$(uname -m)
 
-	# From version 75.0.0, platform is lowercased
-	major=$(echo "$version" | cut -d. -f1)
-	if [ "$major" -ge 75 ]; then
+	# From version 0.75.0
+	minor=$(echo "$version" | cut -d. -f2)
+	if [ "$minor" -ge 75 ]; then
 		platform=$(echo "$platform" | tr '[:upper:]' '[:lower:]')
+
+		if [[ "$arch" == "x86_64" ]]; then
+			arch="amd64"
+		fi
+
+		# File pattern: process-compose_linux_arm.tar.gz
+		url="$GH_REPO/releases/download/v${version}/process-compose_${platform}_${arch}.tar.gz"
+	else
+		# File pattern: process-compose_Linux_arm.tar.gz
+		url="$GH_REPO/releases/download/v${version}/process-compose_${platform}_${arch}.tar.gz"
 	fi
 
-	# File pattern: process-compose_Linux_arm.tar.gz
-	url="$GH_REPO/releases/download/v${version}/process-compose_${platform}_${arch}.tar.gz"
 
 	echo "* Downloading $TOOL_NAME release $version from $url to $filename..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
@@ -76,3 +84,4 @@ install_version() {
 		fail "An error occurred while installing $TOOL_NAME $version."
 	)
 }
+download_release "0.75.1" "process-compose_0.0.1.tar.gz"
