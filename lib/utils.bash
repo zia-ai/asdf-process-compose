@@ -84,4 +84,3 @@ install_version() {
 		fail "An error occurred while installing $TOOL_NAME $version."
 	)
 }
-download_release "0.75.1" "process-compose_0.0.1.tar.gz"
