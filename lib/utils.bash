@@ -32,30 +32,24 @@ list_all_versions() {
 	list_github_tags
 }
 
+# https://github.com/F1bonacc1/process-compose/releases/download/v0.88.0/process-compose_linux_amd64.tar.gz
+# https://github.com/F1bonacc1/process-compose/releases/download/v0.88.0/process-compose_linux_amd64.tar.gz
+
 download_release() {
 	local version filename url
 	version="$1"
 	filename="$2"
 
-	platform=$(uname)
 	arch=$(uname -m)
 
-	# From version 0.75.0
-	minor=$(echo "$version" | cut -d. -f2)
-	if [ "$minor" -ge 75 ]; then
-		platform=$(echo "$platform" | tr '[:upper:]' '[:lower:]')
+	platform=$(uname | tr '[:upper:]' '[:lower:]')
 
-		if [[ "$arch" == "x86_64" ]]; then
-			arch="amd64"
-		fi
-
-		# File pattern: process-compose_linux_arm.tar.gz
-		url="$GH_REPO/releases/download/v${version}/process-compose_${platform}_${arch}.tar.gz"
-	else
-		# File pattern: process-compose_Linux_arm.tar.gz
-		url="$GH_REPO/releases/download/v${version}/process-compose_${platform}_${arch}.tar.gz"
+	if [[ "$arch" == "x86_64" ]]; then
+		arch="amd64"
 	fi
 
+	# File pattern: process-compose_linux_arm.tar.gz
+	url="$GH_REPO/releases/download/v${version}/process-compose_${platform}_${arch}.tar.gz"
 
 	echo "* Downloading $TOOL_NAME release $version from $url to $filename..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
